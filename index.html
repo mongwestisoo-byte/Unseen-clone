@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        /* Smooth Scroll Snap */
+        .scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+        section {
+            scroll-snap-align: start;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .text-huge {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+        .overlay {
+            background: linear-gradient(to bottom, rgba(5,5,5,0.2), rgba(5,5,5,0.8));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scroll-container">
+        
+        <section class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2067" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Minimal Lamp">
+            <div class="overlay absolute inset-0"></div>
+            <div class="relative z-10 text-center" data-aos="zoom-out" data-aos-duration="1500">
+                <h1 class="text-huge font-extrabold uppercase">Ethereal</h1>
+                <p class="text-gray-400 tracking-[0.5em] uppercase mt-4 text-sm">Scroll to Immerse</p>
+            </div>
+        </section>
+
+        <section class="bg-[#0a0a0a]">
+            <div class="container mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <h2 class="text-5xl font-bold mb-6">Abstract Form</h2>
+                    <p class="text-gray-500 text-lg leading-relaxed">
+                        Beauty exists in the unseen details. Every pixel is crafted to provide a seamless transition between thought and reality.
+                    </p>
+                </div>
+                <div class="relative" data-aos="fade-left" data-aos-duration="1000">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800" 
+                         class="rounded-lg shadow-2xl grayscale hover:grayscale-0 transition duration-700" alt="Texture">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=2070" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Mountain Landscape">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="relative z-10 container mx-auto px-10">
+                <h2 class="text-6xl font-extrabold mb-4" data-aos="fade-up">Deep Contrast</h2>
+                <div class="h-1 w-24 bg-white mb-6" data-aos="stretch-right"></div>
+                <p class="max-w-md text-gray-200" data-aos="fade-up" data-aos-delay="200">
+                    Experience landscapes like never before. A curated journey through light and shadow.
+                </p>
+            </div>
+        </section>
+
+        <section class="bg-white text-black">
+            <div class="text-center" data-aos="clip-up">
+                <h2 class="text-huge font-extrabold uppercase mb-8">Begin.</h2>
+                <a href="#" class="px-10 py-4 border-2 border-black font-bold uppercase hover:bg-black hover:text-white transition">
+                    Get Started
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 1000,
+            once: false, // Set to false so animations repeat when scrolling back up
+            mirror: true
+        });
+    </script>
+</body>
+</html>

@@ -3,102 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Experience</title>
+    <title>Nova | Ultra-Visual Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <style>
-        body {
-            background-color: #050505;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
+        :root { --bg: #050505; }
+        body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        .nav-link { position: relative; padding: 5px 0; overflow: hidden; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px;
+            background: white; transform: translateX(-101%); transition: transform 0.3s ease;
         }
-        /* Smooth Scroll Snap */
-        .scroll-container {
-            height: 100vh;
-            overflow-y: auto;
-            scroll-snap-type: y mandatory;
-        }
-        section {
-            scroll-snap-align: start;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .text-huge {
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.9;
-            letter-spacing: -0.05em;
-        }
-        .overlay {
-            background: linear-gradient(to bottom, rgba(5,5,5,0.2), rgba(5,5,5,0.8));
-        }
+        .nav-link:hover::after { transform: translateX(0); }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+        .bento-item { overflow: hidden; border-radius: 20px; position: relative; }
+        .bento-item img { transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+        .bento-item:hover img { transform: scale(1.1) rotate(1deg); }
     </style>
 </head>
 <body>
 
-    <div class="scroll-container">
+    <nav class="fixed top-0 w-full z-[100] backdrop-blur-md border-b border-white/10 px-8 py-4 flex justify-between items-center">
+        <div class="font-black text-xl tracking-tighter">NOVA STUDIO</div>
         
-        <section class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=2067" 
-                 class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Minimal Lamp">
-            <div class="overlay absolute inset-0"></div>
-            <div class="relative z-10 text-center" data-aos="zoom-out" data-aos-duration="1500">
-                <h1 class="text-huge font-extrabold uppercase">Ethereal</h1>
-                <p class="text-gray-400 tracking-[0.5em] uppercase mt-4 text-sm">Scroll to Immerse</p>
-            </div>
+        <div class="hidden lg:flex space-x-10 text-[10px] uppercase tracking-[0.2em] font-medium opacity-60">
+            <a href="#" class="nav-link text-white opacity-100">Home</a>
+            <a href="#" class="nav-link">Architecture</a>
+            <a href="#" class="nav-link">Abstract</a>
+            <a href="#" class="nav-link">Digital Art</a>
+            <a href="#" class="nav-link">Cinematics</a>
+            <a href="#" class="nav-link">Archive</a>
+            <a href="#" class="nav-link">Journal</a>
+            <a href="#" class="nav-link border border-white/20 px-4 py-1 rounded-full">Contact</a>
+        </div>
+        
+        <div class="lg:hidden text-xs uppercase">Menu</div>
+    </nav>
+
+    <main>
+        <section class="h-[80vh] flex flex-col justify-center items-center text-center px-6">
+            <h1 class="text-[15vw] font-black leading-none tracking-tighter mb-4" data-aos="fade-up">CURATED.</h1>
+            <p class="max-w-md text-gray-400 text-sm tracking-widest uppercase" data-aos="fade-up" data-aos-delay="200">
+                A massive collection of visual thoughts, spatial design, and digital experiments.
+            </p>
         </section>
 
-        <section class="bg-[#0a0a0a]">
-            <div class="container mx-auto px-10 grid md:grid-cols-2 gap-10 items-center">
-                <div data-aos="fade-right" data-aos-duration="1000">
-                    <h2 class="text-5xl font-bold mb-6">Abstract Form</h2>
-                    <p class="text-gray-500 text-lg leading-relaxed">
-                        Beauty exists in the unseen details. Every pixel is crafted to provide a seamless transition between thought and reality.
-                    </p>
+        <section class="px-6 pb-20">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px]">
+                
+                <div class="bento-item md:col-span-2 md:row-span-2" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1449156001931-8283327360e3?q=80&w=1000" class="w-full h-full object-cover">
+                    <div class="absolute bottom-6 left-6 p-4 backdrop-blur-md bg-black/20 rounded-lg">Spatial Concept 01</div>
                 </div>
-                <div class="relative" data-aos="fade-left" data-aos-duration="1000">
-                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=800" 
-                         class="rounded-lg shadow-2xl grayscale hover:grayscale-0 transition duration-700" alt="Texture">
+
+                <div class="bento-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item md:row-span-2" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item md:col-span-2" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1518005020411-38b8122f5ee6?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item md:col-span-2 md:row-span-2" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1000" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?q=80&w=800" class="w-full h-full object-cover">
+                </div>
+
+                <div class="bento-item" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=800" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
 
-        <section>
-            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=2070" 
-                 class="absolute inset-0 w-full h-full object-cover opacity-60" alt="Mountain Landscape">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <div class="relative z-10 container mx-auto px-10">
-                <h2 class="text-6xl font-extrabold mb-4" data-aos="fade-up">Deep Contrast</h2>
-                <div class="h-1 w-24 bg-white mb-6" data-aos="stretch-right"></div>
-                <p class="max-w-md text-gray-200" data-aos="fade-up" data-aos-delay="200">
-                    Experience landscapes like never before. A curated journey through light and shadow.
-                </p>
+        <section class="py-20 bg-white text-black overflow-hidden">
+            <div class="whitespace-nowrap flex space-x-20 animate-marquee text-9xl font-black italic opacity-10">
+                <span>GALLERY SCROLL GALLERY SCROLL GALLERY SCROLL GALLERY SCROLL</span>
+            </div>
+            <div class="container mx-auto px-6 mt-10">
+                <h2 class="text-4xl font-bold mb-10">Latest Archive</h2>
+                <div class="flex space-x-6 overflow-x-auto pb-10 scrollbar-hide">
+                    <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=600" class="w-80 h-96 object-cover rounded-xl flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=600" class="w-80 h-96 object-cover rounded-xl flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600" class="w-80 h-96 object-cover rounded-xl flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" class="w-80 h-96 object-cover rounded-xl flex-shrink-0">
+                </div>
             </div>
         </section>
 
-        <section class="bg-white text-black">
-            <div class="text-center" data-aos="clip-up">
-                <h2 class="text-huge font-extrabold uppercase mb-8">Begin.</h2>
-                <a href="#" class="px-10 py-4 border-2 border-black font-bold uppercase hover:bg-black hover:text-white transition">
-                    Get Started
-                </a>
-            </div>
-        </section>
-
-    </div>
+        <footer class="py-20 text-center opacity-30 text-[10px] tracking-[0.5em] uppercase">
+            © 2026 Nova Visuals • Built for the Unseen
+        </footer>
+    </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 1000,
-            once: false, // Set to false so animations repeat when scrolling back up
-            mirror: true
-        });
+        // Smooth Scroll
+        const lenis = new Lenis()
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // Animations
+        AOS.init({ duration: 1000, once: false });
     </script>
+    
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee { animation: marquee 20s linear infinite; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
 </body>
 </html>
